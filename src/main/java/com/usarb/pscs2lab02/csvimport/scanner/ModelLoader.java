@@ -114,7 +114,7 @@ public class ModelLoader {
         Customer customer = customerRepository.findById(record.getCustomerId()).orElse(null);
         if (customer == null) {
             customer = new Customer();
-            customer.setId(record.getCustomerId());
+            customer.setCustomerId(record.getCustomerId());
             customer.setName(record.getCustomerName());
             customer.setSegment(segment);
             customer.setCity(city);
@@ -204,7 +204,7 @@ public class ModelLoader {
         Order order = orderRepository.findById(record.getOrderId()).orElse(null);
         if (order == null) {
             order = new Order();
-            order.setId(record.getOrderId());
+            order.setOrderId(record.getOrderId());
             order.setPriority(priority);
             order.setCustomer(customer);
 

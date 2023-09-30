@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Entity(name = "order_items")
 public class OrderItem extends BaseModel {
     @ManyToOne
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    @JoinColumn(name = "order_id", referencedColumnName = "orderId")
     private Order order;
 
     @ManyToOne

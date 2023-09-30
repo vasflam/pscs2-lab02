@@ -10,7 +10,7 @@ public class BaseModel implements Persistable<Long> {
     private Long id;
 
     @Transient
-    private boolean isNew;
+    private boolean isNew = true;
 
     @Override
     public Long getId() {

@@ -6,8 +6,11 @@ import java.time.LocalDate;
 
 @Entity(name = "orders")
 public class Order extends BaseModel {
+    @Column(unique = true)
+    private Long orderId;
+
     @ManyToOne
-    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
     private Customer customer;
 
     @ManyToOne
@@ -19,6 +22,14 @@ public class Order extends BaseModel {
 
     @Temporal(value = TemporalType.DATE)
     private LocalDate shippedAt;
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
 
     public Customer getCustomer() {
         return customer;

@@ -6,9 +6,13 @@ import java.util.Set;
 
 @Entity(name = "customers")
 public class Customer extends BaseModel {
+    @Column(unique = true)
+    private Long customerId;
+
     @ManyToOne
     @JoinColumn(name = "segment_id", referencedColumnName = "id")
     private CustomerSegment segment;
+
 
     @ManyToOne
     @JoinColumn(name = "city_id", referencedColumnName = "id")
@@ -19,6 +23,14 @@ public class Customer extends BaseModel {
 
     @Column
     private Integer zip;
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
 
     public String getName() {
         return name;
