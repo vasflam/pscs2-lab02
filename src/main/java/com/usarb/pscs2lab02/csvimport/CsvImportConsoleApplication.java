@@ -21,6 +21,10 @@ public class CsvImportConsoleApplication implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
+        if ("1".equals(System.getenv("FLUSH_DATABASE"))) {
+            System.setProperty("spring.jpa.hibernate.ddl-auto", "create-drop");
+        }
+
         new SpringApplicationBuilder(CsvImportConsoleApplication.class)
                 .web(WebApplicationType.NONE)
                 .bannerMode(Banner.Mode.OFF)
@@ -31,6 +35,10 @@ public class CsvImportConsoleApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        if ("1".equals(System.getenv("FLUSH_DATABASE"))) {
+            return;
+        }
+
         String fname = "./docs/Orders.csv";
         scanner.scan(fname);
     }
