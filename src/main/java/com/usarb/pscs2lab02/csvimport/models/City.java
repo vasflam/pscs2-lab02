@@ -1,16 +1,13 @@
 package com.usarb.pscs2lab02.csvimport.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 @Entity(name = "cities")
 public class City extends BaseModel {
     @Column(unique = true)
     private String name;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "state_id", referencedColumnName = "id")
     private State state;
 

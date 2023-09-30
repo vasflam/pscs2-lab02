@@ -7,7 +7,7 @@ public class State extends BaseModel {
     @Column(unique = true)
     private String name;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "region_id", referencedColumnName = "id")
     private Region region;
 

@@ -31,6 +31,7 @@ public class CsvImportConsoleApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        scanner.scan();
+        String fname = "./docs/Orders.csv";
+        scanner.scan(fname);
     }
 }

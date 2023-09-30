@@ -25,7 +25,7 @@ public class InputRecord {
     private String City;
     private Integer zip;
     private String orderDate;
-    private String shipDate;
+    private String shippingDate;
     private Float profit;
     private Integer quantity;
     private Float sales;
@@ -83,7 +83,11 @@ public class InputRecord {
     }
 
     public Float getProductBaseMargin() {
-        return Float.valueOf(data.get(13));
+        try {
+            return Float.valueOf(data.get(13));
+        } catch (NumberFormatException e) {
+            return (float) 0;
+        }
     }
 
     public String getRegion() {
@@ -106,7 +110,7 @@ public class InputRecord {
         return data.get(18);
     }
 
-    public String getShipDate() {
+    public String getShippingDate() {
         return data.get(19);
     }
 
@@ -118,7 +122,11 @@ public class InputRecord {
         return Integer.valueOf(data.get(21));
     }
 
+    public Float getSales() {
+        return Float.valueOf(data.get(22));
+    }
+
     public Long getOrderId() {
-        return Long.valueOf(data.get(22));
+        return Long.valueOf(data.get(23));
     }
 }

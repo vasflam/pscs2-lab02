@@ -2,23 +2,23 @@ package com.usarb.pscs2lab02.csvimport.models;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity(name = "orders")
 public class Order extends BaseModel {
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "priority_id", referencedColumnName = "id")
     private OrderPriority priority;
 
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private LocalDateTime createdAt;
+    @Temporal(value = TemporalType.DATE)
+    private LocalDate createdAt;
 
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private LocalDateTime shippedAt;
+    @Temporal(value = TemporalType.DATE)
+    private LocalDate shippedAt;
 
     public Customer getCustomer() {
         return customer;
@@ -36,19 +36,19 @@ public class Order extends BaseModel {
         this.priority = priority;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getShippedAt() {
+    public LocalDate getShippedAt() {
         return shippedAt;
     }
 
-    public void setShippedAt(LocalDateTime shippedAt) {
+    public void setShippedAt(LocalDate shippedAt) {
         this.shippedAt = shippedAt;
     }
 }

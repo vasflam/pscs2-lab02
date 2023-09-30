@@ -6,11 +6,11 @@ import java.util.Set;
 
 @Entity(name = "customers")
 public class Customer extends BaseModel {
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "segment_id", referencedColumnName = "id")
     private CustomerSegment segment;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "city_id", referencedColumnName = "id")
     private City city;
 
