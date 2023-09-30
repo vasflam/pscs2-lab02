@@ -5,31 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputRecord {
-    private List<String> data;
-    private Integer rowId;
-    private String priority;
-    private Float discount;
-    private Float price;
-    private Float shippingPrice;
-    private Integer customerId;
-    private String customerName;
-    private String shippingType;
-    private String customerSegment;
-    private String productCategory;
-    private String productSubCategory;
-    private String productBox;
-    private String productName;
-    private Float productBaseMargin;
-    private String region;
-    private String state;
-    private String City;
-    private Integer zip;
-    private String orderDate;
-    private String shippingDate;
-    private Float profit;
-    private Integer quantity;
-    private Float sales;
-    private Long orderId;
+    private final List<String> data;
+
     public InputRecord(String[] input) {
         this.data = Arrays.asList(input);
     }

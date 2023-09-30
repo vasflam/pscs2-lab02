@@ -148,9 +148,6 @@ public class ModelLoader {
 
     @Cacheable(value = "productBoxCache", key = "#record.getProductBox()")
     ProductBox loadOrSaveProductBox(InputRecord record) {
-        if (record.getProductBox().equals("Small Box")) {
-            System.out.println("Fetching box = " + record.getProductBox());
-        }
         ProductBox box = productBoxRepository.findByName(record.getProductBox());
         if (box == null) {
             box = new ProductBox();
@@ -162,11 +159,6 @@ public class ModelLoader {
 
     @Cacheable(value = "productCache", key = "#record.getProductName()")
     Product loadOrSaveProduct(InputRecord record, ProductCategory cat1, ProductCategory cat2, ProductBox box) {
-        /*
-        if (record.getProductName().equals("Avery 49")) {
-            System.out.println("Fetching or creating = " + record.getProductName());
-        }
-        */
         Product product = productRepository.findByName(record.getProductName());
         if (product == null) {
             product = new Product();
