@@ -111,7 +111,7 @@ public class ModelLoader {
 
     @Cacheable(cacheNames = {"customerCache"}, key = "#record.getCustomerId()")
     Customer loadOrSaveCustomer(InputRecord record, CustomerSegment segment, City city) {
-        Customer customer = customerRepository.findById(record.getCustomerId()).orElse(null);
+        Customer customer = customerRepository.findByCustomerId(record.getCustomerId());
         if (customer == null) {
             customer = new Customer();
             customer.setCustomerId(record.getCustomerId());
@@ -201,7 +201,7 @@ public class ModelLoader {
     Order loadOrSaveOrder(InputRecord record,
                                   OrderPriority priority,
                                   Customer customer) {
-        Order order = orderRepository.findById(record.getOrderId()).orElse(null);
+        Order order = orderRepository.findByOrderId(record.getOrderId());
         if (order == null) {
             order = new Order();
             order.setOrderId(record.getOrderId());
